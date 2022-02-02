@@ -1,8 +1,8 @@
 //
-//  OpenOSCKit.swift
+//  OSCPacketDestination.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 22/07/2021.
+//  Created by Sam Smallman on 29/10/2017.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,11 @@
 //  THE SOFTWARE.
 //
 
-// Export all submodules so they all import
-// when importing the top-level module OpenOSCKit
-@_exported import OpenOSC
+import Foundation
+
+public protocol OSCPacketDestination: class {
+    
+    func take(message: OSCMessage)
+    func take(bundle: OSCBundle)
+    
+}

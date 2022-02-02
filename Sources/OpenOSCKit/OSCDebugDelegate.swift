@@ -1,8 +1,8 @@
 //
-//  OSCSentPacket.swift
+//  OSCDebugDelegate.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 08/09/2021.
+//  Created by Sam Smallman on 11/01/2021.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,16 +26,11 @@
 
 import Foundation
 
-/// An object that represents a packet sent to a server.
-internal struct OSCSentPacket {
-
-    /// The host of the client the message was sent to.
-    let host: String?
-
-    /// The port of the client the message was sent to.
-    let port: UInt16?
-
-    /// The message that was sent to the client.
-    let packet: OSCPacket
-
+/// Notifies observers when new messages are received, and provides debug information.
+public protocol OSCDebugDelegate: class {
+    
+    /// Notifies the delegate of a new debug log entry.
+    /// - Parameter logMessage: A human-readable log message.
+    func debugLog(_ logMessage: String)
+    
 }

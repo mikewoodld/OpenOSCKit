@@ -17,13 +17,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/robbiehanson/CocoaAsyncSocket", from: "7.6.5"),
-        .package(name: "NetUtils" ,url: "https://github.com/svdo/swift-netutils", from: "4.2.0"),
-        .package(url: "https://github.com/dsmurfin/OpenOSC", from: "1.0.0")
+        .package(name: "NetUtils" ,url: "https://github.com/svdo/swift-netutils", from: "4.2.0")
     ],
     targets: [
         .target(
             name: "OpenOSCKit",
-            dependencies: ["CocoaAsyncSocket", "NetUtils", "OpenOSC"]),
+            dependencies: ["CocoaAsyncSocket", "NetUtils"]),
         .testTarget(
             name: "OpenOSCKitTests",
             dependencies: ["OpenOSCKit"]),

@@ -1,8 +1,8 @@
 //
-//  Numeric.swift
+//  OSCArguments.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 13/07/2021.
+//  Created by Sam Smallman on 29/10/2017.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +26,15 @@
 
 import Foundation
 
-extension Numeric {
-
-    internal var data: Data {
-        var source = self
-        return Data(bytes: &source, count: MemoryLayout<Self>.size)
-    }
-
+public enum OSCArgument {
+    case oscString
+    case oscBlob
+    case oscInt
+    case oscBool
+    case oscFloat
+    case oscTrue
+    case oscFalse
+    case oscNil
+    case oscImpulse
+    case oscTimetag
 }

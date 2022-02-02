@@ -1,8 +1,8 @@
 //
-//  OSCTcpStreamFramingTests.swift
-//  OpenOSCKitTests
+//  OSCPacket.swift
+//  OpenOSCKit
 //
-//  Created by Sam Smallman on 09/08/2021.
+//  Created by Sam Smallman on 29/10/2017.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,31 +24,10 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-@testable import OpenOSCKit
+import Foundation
 
-final class OSCTcpStreamFramingTests: XCTestCase {
+public protocol OSCPacket {
     
-    static var allTests = [
-        ("testSLIP", testSLIP),
-        ("testPLH", testPLH)
-    ]
+    func packetData()->Data
     
-    func testSLIP() {
-        let slip: Int = 0
-        let streamFraming = OSCTcpStreamFraming(rawValue: slip)
-        
-        XCTAssertNotNil(streamFraming)
-        XCTAssertEqual(streamFraming, OSCTcpStreamFraming.SLIP)
-    }
-    
-    
-    func testPLH() {
-        let plh: Int = 1
-        let streamFraming = OSCTcpStreamFraming(rawValue: plh)
-        
-        XCTAssertNotNil(streamFraming)
-        XCTAssertEqual(streamFraming, OSCTcpStreamFraming.PLH)
-    }
-
 }

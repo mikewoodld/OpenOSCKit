@@ -1,5 +1,5 @@
 //
-//  Interface.swift
+//  OSCClientDelegate.swift
 //  OpenOSCKit
 //
 //  Created by Sam Smallman on 29/10/2017.
@@ -25,23 +25,10 @@
 //
 
 import Foundation
-import SystemConfiguration
-import NetUtils
 
-extension Interface {
-    #if os(OSX)
-    open var displayName: String {
-        guard let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] else {
-            return ""
-        }
-        for interface in interfaces where SCNetworkInterfaceGetBSDName(interface) as String? == self.name {
-            return SCNetworkInterfaceGetLocalizedDisplayName(interface)! as String
-        }
-        return ""
-    }
-
-    open var displayText: String {
-        return "\(self.displayName) (\(self.name)) - \(self.address ?? "")"
-    }
-    #endif
+public protocol OSCClientDelegate: class {
+    
+    func clientDidConnect(client: OSCClient)
+    func clientDidDisconnect(client: OSCClient)
+    
 }

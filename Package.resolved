@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "OpenOSC",
-        "repositoryURL": "https://github.com/dsmurfin/OpenOSC",
-        "state": {
-          "branch": null,
-          "revision": "d56c687dd2bab78a4cf5b958b48a03fae2dd0f8c",
-          "version": "1.0.0"
-        }
-      },
-      {
         "package": "NetUtils",
         "repositoryURL": "https://github.com/svdo/swift-netutils",
         "state": {

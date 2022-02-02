@@ -1,8 +1,8 @@
 //
-//  UInt32.swift
+//  OSCDefine.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 18/07/2021.
+//  Created by Sam Smallman on 29/10/2017.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,17 +26,13 @@
 
 import Foundation
 
-extension UInt32 {
+// Integer literals can be written as an octal number with a 0o prefix.
+internal let slipEnd: UInt8 = 0o0300         /* indicates end of packet */
+internal let slipEsc: UInt8 = 0o0333         /* indicates byte stuffing */
+internal let slipEscEnd: UInt8 = 0o0334     /* ESC ESC_END means END data byte */
+internal let slipEscEsc: UInt8 = 0o0335     /* ESC ESC_ESC means ESC data byte */
 
-    internal func byteArray() -> [UInt8] {
-        var bigEndian = self.bigEndian
-        let count = MemoryLayout<UInt32>.size
-        let bytePtr = withUnsafePointer(to: &bigEndian) {
-            $0.withMemoryRebound(to: UInt8.self, capacity: count) {
-                UnsafeBufferPointer(start: $0, count: count)
-            }
-        }
-        return Array(bytePtr)
-    }
-
+public enum OSCTCPStreamFraming {
+    case SLIP   // http://www.rfc-editor.org/rfc/rfc1055.txt
+    case PLH    // Packet Length Headers
 }
