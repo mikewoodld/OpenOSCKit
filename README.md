@@ -321,6 +321,8 @@ OpenOSCKit is supported by the infrastructural code provided by [OpenOSC](https:
 
 **Sammy Smallman** - *Initial Work* - [SammySmallman](https://github.com/sammysmallman)
 
+**Daniel Murfin** - *Fork* - [dsmurfin](https://github.com/dsmurfin)
+
 See also the list of [contributors](https://github.com/dsmurfin/OpenOSCKit/graphs/contributors) who participated in this project.
 
 ## Acknowledgments
