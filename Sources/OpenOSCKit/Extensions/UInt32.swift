@@ -1,8 +1,8 @@
 //
-//  OpenOSCKit.swift
+//  UInt32.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 22/07/2021.
+//  Created by Sam Smallman on 18/07/2021.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,19 @@
 //  THE SOFTWARE.
 //
 
-// Export all submodules so they all import
-// when importing the top-level module OpenOSCKit
-@_exported import OpenOSC
+import Foundation
+
+extension UInt32 {
+
+    internal func byteArray() -> [UInt8] {
+        var bigEndian = self.bigEndian
+        let count = MemoryLayout<UInt32>.size
+        let bytePtr = withUnsafePointer(to: &bigEndian) {
+            $0.withMemoryRebound(to: UInt8.self, capacity: count) {
+                UnsafeBufferPointer(start: $0, count: count)
+            }
+        }
+        return Array(bytePtr)
+    }
+
+}

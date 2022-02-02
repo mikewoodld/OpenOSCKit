@@ -1,8 +1,8 @@
 //
-//  OpenOSCKit.swift
+//  OSCSentPacket.swift
 //  OpenOSCKit
 //
-//  Created by Sam Smallman on 22/07/2021.
+//  Created by Sam Smallman on 08/09/2021.
 //  Copyright © 2020 Sam Smallman. https://github.com/SammySmallman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,18 @@
 //  THE SOFTWARE.
 //
 
-// Export all submodules so they all import
-// when importing the top-level module OpenOSCKit
-@_exported import OpenOSC
+import Foundation
+
+/// An object that represents a packet sent to a server.
+internal struct OSCSentPacket {
+
+    /// The host of the client the message was sent to.
+    let host: String?
+
+    /// The port of the client the message was sent to.
+    let port: UInt16?
+
+    /// The message that was sent to the client.
+    let packet: OSCPacket
+
+}
