@@ -26,7 +26,7 @@
 
 import Foundation
 import CocoaAsyncSocket
-import CoreOSC
+import OpenOSC
 
 /// The possible stream framing of TCP data.
 /// - .SLIP - [Serial Line IP ](http://www.rfc-editor.org/rfc/rfc1055.txt)

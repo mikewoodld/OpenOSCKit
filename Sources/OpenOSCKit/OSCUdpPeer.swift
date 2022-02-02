@@ -26,7 +26,7 @@
 
 import Foundation
 import CocoaAsyncSocket
-import CoreOSC
+import OpenOSC
 
 /// An object that receives and sends OSCPackets via UDP using the same socket.
 public class OSCUdpPeer: NSObject {

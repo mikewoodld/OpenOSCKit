@@ -25,7 +25,7 @@
 //
 
 import Foundation
-import CoreOSC
+import OpenOSC
 
 public protocol OSCTcpClientDelegate: AnyObject {
 
